@@ -4,8 +4,9 @@ public class ShipController : ShipData
 {
     [SerializeField] private ShipBase[] shipBases;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         InitShipBase();
     }
     private void InitShipBase()
