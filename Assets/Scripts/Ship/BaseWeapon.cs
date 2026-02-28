@@ -2,65 +2,27 @@ using UnityEngine;
 
 public abstract class BaseWeapon : MonoBehaviour, IWeapon
 {
-    [Header("Attack Settings")]
-    [SerializeField] protected LayerMask targetLayer;
-
-    private ShipController shipController;
+    protected UnitData owner;
     protected float lastAttackTime;
 
-    protected virtual void Update()
+    protected virtual void Awake()
     {
-        Attack();
+        owner = GetComponent<UnitData>();
     }
 
-    public void Attack()
+    public void TryAttack()
     {
-        if (!CanAttack()) return;
+        if (Time.time < lastAttackTime + owner.AttackSpeed)
+            return;
 
-        Transform target = GetNearestTarget();
-        if (target == null) return;
+        Transform target = FindTarget();
+        if (target == null)
+            return;
 
         lastAttackTime = Time.time;
-        ExecuteAttack(target);
+        Execute(target);
     }
 
-    protected abstract void ExecuteAttack(Transform target);
-
-    protected bool CanAttack()
-    {
-        return Time.time >= lastAttackTime + shipController.AttackSpeed();
-    }
-
-    protected Transform GetNearestTarget()
-    {
-        Collider[] hits = Physics.OverlapSphere(
-            transform.position,
-            shipController.AttackRange(),
-            targetLayer
-        );
-
-        float minDist = Mathf.Infinity;
-        Transform nearest = null;
-
-        foreach (var hit in hits)
-        {
-            float dist = Vector3.Distance(
-                transform.position,
-                hit.transform.position
-            );
-
-            if (dist < minDist)
-            {
-                minDist = dist;
-                nearest = hit.transform;
-            }
-        }
-
-        return nearest;
-    }
-
-    public void Initialize(WeaponData data, ShipController shipController)
-    {
-        this.shipController = shipController;
-    }
+    protected abstract Transform FindTarget();
+    protected abstract void Execute(Transform target);
 }

@@ -1,19 +1,16 @@
 using UnityEngine;
 
-public class ShipController : ShipData
+public class ShipController : MonoBehaviour
 {
-    [SerializeField] private ShipBase[] shipBases;
+    private IWeapon weapon;
 
-    protected override void Awake()
+    private void Awake()
     {
-        base.Awake();
-        InitShipBase();
+        weapon = GetComponent<IWeapon>();
     }
-    private void InitShipBase()
+
+    private void Update()
     {
-        foreach (var ship in shipBases)
-        {
-            ship.InitShipController(this);
-        }
+        weapon.TryAttack();
     }
 }

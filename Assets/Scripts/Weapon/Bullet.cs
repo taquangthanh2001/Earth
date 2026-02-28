@@ -3,14 +3,17 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     private Transform target;
+    private float damage;
+
     [SerializeField] private float speed = 15f;
 
-    public void Init(Transform t)
+    public void Init(Transform t, float dmg)
     {
         target = t;
+        damage = dmg;
     }
 
-    void Update()
+    private void Update()
     {
         if (target == null)
         {
@@ -21,11 +24,15 @@ public class Bullet : MonoBehaviour
         transform.position = Vector3.MoveTowards(
             transform.position,
             target.position,
-            speed * Time.deltaTime
-        );
+            speed * Time.deltaTime);
 
         if (Vector3.Distance(transform.position, target.position) < 0.2f)
         {
+            IDamageable damageable = target.GetComponent<IDamageable>();
+
+            if (damageable != null)
+                damageable.TakeDamage(damage);
+
             PoolManager.Instance.Despawn(gameObject);
         }
     }

@@ -16,8 +16,8 @@ public class WeaponData : ScriptableObject
     {
         return style switch
         {
-            StyleAttack.AttackBullet => typeof(BulletWeapon),
-            StyleAttack.AttackSkill => typeof(SkillWeapon),
+            StyleAttack.AttackBullet => typeof(ProjectileWeapon),
+            //StyleAttack.AttackSkill => typeof(SkillWeapon),
             _ => null
         };
     }
