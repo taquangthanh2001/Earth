@@ -181,7 +181,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -386,7 +386,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 709320989}
-  - component: {fileID: 709320990}
+  - component: {fileID: 709320991}
   m_Layer: 0
   m_Name: SpawnEnemy
   m_TagString: Untagged
@@ -409,7 +409,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &709320990
+--- !u!114 &709320991
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -418,12 +418,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 709320988}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90b930481e1e10d488768175b58da7cb, type: 3}
+  m_Script: {fileID: 11500000, guid: 11d55a49d7d38b24babd46b74848c25d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 4148627454912908485, guid: b5edcd7174ceb144baf58d786fa14be6, type: 3}
+  formationData: {fileID: 11400000, guid: 92583a1f47cfcb54c9b9dc4dada9617c, type: 2}
   earth: {fileID: 1053675605}
   spawnRadius: 40
+  cellSize: 0.5
+  normalPrefab: {fileID: 4148627454912908485, guid: b5edcd7174ceb144baf58d786fa14be6, type: 3}
+  elitePrefab: {fileID: 4148627454912908485, guid: b5edcd7174ceb144baf58d786fa14be6, type: 3}
+  bossPrefab: {fileID: 4148627454912908485, guid: b5edcd7174ceb144baf58d786fa14be6, type: 3}
+  superBotPrefab: {fileID: 4148627454912908485, guid: b5edcd7174ceb144baf58d786fa14be6, type: 3}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -487,7 +492,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1406784529821176, guid: f9f423b8b41208145936c893228ffc9c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4398683218076806, guid: f9f423b8b41208145936c893228ffc9c, type: 3}
       propertyPath: m_LocalScale.x
@@ -727,7 +732,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6138854326128969609, guid: 877816aa7652a9c4e92e2de1848794ce, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6848931315320222533, guid: 877816aa7652a9c4e92e2de1848794ce, type: 3}

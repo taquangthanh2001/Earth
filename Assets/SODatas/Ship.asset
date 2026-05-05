@@ -9,10 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2524cc18b6a9214087a7e7f5259529d, type: 3}
-  m_Name: Ship_1
+  m_Script: {fileID: 11500000, guid: 79f3887b69678ea479bf1d78a896fb45, type: 3}
+  m_Name: Ship
   m_EditorClassIdentifier: 
-  Hp: 100
-  Damage: 10
-  AttackSpeed: 0.1
-  AttackRange: 1000
+  maxHp: 10
+  damage: 10
+  attackSpeed: 1.1
+  attackRange: 1000
+  moveSpeed: 0.1

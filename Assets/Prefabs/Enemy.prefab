@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 5730835395480157213}
   - component: {fileID: 5965232444293136750}
   - component: {fileID: 2610545699835343211}
+  - component: {fileID: 3651357022759414779}
+  - component: {fileID: -8619415110221145167}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
@@ -60,6 +62,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c719570685da0b74487c125db99e7d55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotateToTarget: 1
+  rotateSpeed: 10
+  lockYRotation: 0
   earthLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -75,7 +80,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f254583a0f904424f939f5b7518df9c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stats: {fileID: 11400000, guid: 81494cc8cd4490340aabe1444141b8c4, type: 2}
+  stats: {fileID: 11400000, guid: 43a53ae74195ffe4a890ad7e64f0f230, type: 2}
   goldReward: 10
 --- !u!65 &2610545699835343211
 BoxCollider:
@@ -98,6 +103,33 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.25, y: 0.25, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3651357022759414779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4148627454912908485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ff6a767d38fef647819d9b6f58987b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-8619415110221145167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4148627454912908485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e71ce3465e5bd940b66f31e97f46312, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  earth: {fileID: 0}
+  attackRange: 12
+  fireRate: 1
 --- !u!1001 &6947879097806149154
 PrefabInstance:
   m_ObjectHideFlags: 0
